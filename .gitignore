@@ -1,3 +1,6 @@
+# Ignore built project
+rml
+
 # Prerequisites
 *.d
 

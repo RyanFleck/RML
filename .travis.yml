@@ -3,4 +3,15 @@ compiler:
   - gcc
   - clang
 
-script: cc -std=c99 -Wall rml.c mpc.c -ledit -lreadline -lm
+before_install:
+  - sudo apt-get install -y libeditline-dev gcc build-essential
+
+addons:
+  apt:
+    update: true
+
+script: cc -std=c99 -Wall rml.c mpc.c -ledit -lm -lreadline -I/usr/local/include -o rml
+
+notifications:
+  email: false
+
