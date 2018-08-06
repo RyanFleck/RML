@@ -2,6 +2,4 @@ theme: jekyll-theme-minimal
 
 title: RML
 descripton: Docs for Ryan's Micro Lisp
-
-logo: assets/rml.svg
 show_downloads: true
