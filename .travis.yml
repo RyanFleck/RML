@@ -1,0 +1,6 @@
+language: c
+compiler:
+  - gcc
+  - clang
+
+script: cc -std=c99 -Wall rml.c mpc.c -ledit -lreadline -lm
