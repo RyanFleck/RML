@@ -3,4 +3,4 @@
 
 This is a tiny lisp. No use case yet, just building it for fun.
 
-![RML](/assets/rml.svg)
+![RML](/docs/assets/rml.svg)
