@@ -1,8 +1,8 @@
+![RML](./assets/rml.svg)
+
 # Ryan's Micro LISP
 
 [![Build Status](https://travis-ci.org/RyanFleck/RML.svg?branch=master)](https://travis-ci.org/RyanFleck/RML)
-
-![RML](/assets/rml.svg)
 
 This is a tiny lisp. No use case yet, just building it for fun. It can currently only parse polish mathematical grammar with the four basic operations, separated with parentheses to an infinite depth.
 
