@@ -1,7 +1,5 @@
 language: c
-compiler: 
-  - gcc
-  - clang
+compiler: gcc
 
 addons:
   apt:
