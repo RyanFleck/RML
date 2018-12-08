@@ -5,7 +5,9 @@ addons:
   apt:
     update: true
     packages:
+      - build-essential
       - make
+      - gcc
       - libeditline-dev
       - libreadline-dev
       - libedit-dev
