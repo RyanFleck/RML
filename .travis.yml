@@ -1,11 +1,16 @@
 language: c
-os: linux
+compiler: gcc
 
-before_install: sudo apt-get install -y make gcc libeditline-dev libreadline-dev build-essential libedit-dev
+install: make get-deps
 
 addons:
   apt:
     update: true
+    packages:
+      - make
+      - libeditline-dev
+      - libreadline-dev
+      - libedit-dev
 
 script: make
 
