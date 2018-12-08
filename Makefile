@@ -1,5 +1,7 @@
-CC=gcc
+CC = gcc
+CFLAGS = -std=c99 -Wall -g
+LFLAGS = -ledit -lreadline -lm  
 
-rmlmake: rml.c
-	gcc -Wall -std=c99 -ledit -lm -lreadline -o rml rml.c mpc.c
+rml: rml.c
+	$(CC) $(CFLAGS) $(LFLAGS) rml.c mpc.c -o rml 
 
