@@ -1,16 +1,14 @@
 language: c
-compiler:
-  - gcc
-  - clang
+os: linux
+compiler: gcc
 
-before_install:
-  - sudo apt-get install -y libeditline-dev libreadline-dev build-essential libedit-dev
+before_install: sudo apt-get install -y make gcc libeditline-dev libreadline-dev build-essential libedit-dev
 
 addons:
   apt:
     update: true
 
-script: cc -std=c99 -Wall rml.c mpc.c -lm -lreadline -o rml
+script: make
 
 notifications:
   email: false
