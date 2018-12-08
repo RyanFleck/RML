@@ -1,6 +1,5 @@
 language: c
 os: linux
-compiler: gcc
 
 before_install: sudo apt-get install -y make gcc libeditline-dev libreadline-dev build-essential libedit-dev
 
