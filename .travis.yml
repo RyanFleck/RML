@@ -1,5 +1,7 @@
 language: c
-compiler: gcc
+compiler: 
+  - gcc
+  - clang
 
 addons:
   apt:
@@ -8,6 +10,7 @@ addons:
       - build-essential
       - make
       - gcc
+      - libreadline6
       - libeditline-dev
       - libreadline-dev
       - libedit-dev
