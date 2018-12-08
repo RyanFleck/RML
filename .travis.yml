@@ -1,8 +1,6 @@
 language: c
 compiler: gcc
 
-install: make get-deps
-
 addons:
   apt:
     update: true
