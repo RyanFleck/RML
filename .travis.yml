@@ -8,7 +8,6 @@ addons:
       - build-essential
       - make
       - gcc
-      - libreadline7 
       - libeditline-dev
       - libreadline-dev
       - libedit-dev
