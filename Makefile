@@ -1,4 +1,4 @@
-CFLAGS = -std=c99 -Wall -g
+CFLAGS = -std=c99 -Wall -g -I//usr/include
 LFLAGS = -ledit -lreadline -lm  
 
 rml: rml.c
