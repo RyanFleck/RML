@@ -6,17 +6,20 @@
  *
  *  Copyright (C) 2018 Ryan Fleck under the GNU GPLv3.
  *
+ *  Derived From the C Tutorial Here:
+ *   www.buildyourownlisp.com
+ *
  *  Prerequisites: mpc.c, mpc.h, libedit-dev, libreadline-dev.
  *   MPC repo at <github.com/orangeduck/mpc>
  *
  *  Compilation Instructions:
- *   (GNU/Linux) cc -stc=c99 -Wall rml.c mpc.c -ledit -lm
+ *   (GNU/Linux) cc -stc=c99 -Wall rml.c mpc.c -ledit -lm -lreadline
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "mpc.h"		//Included in projects repo.
+#include "mpc.h"		// Included in repo.
 
 #ifdef _WIN32
 #include <string.h>
