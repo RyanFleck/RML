@@ -55,7 +55,7 @@ int main(int argc, char** argv){
     number   : /-?[0-9]+/ ;                            \
     operator : '+' | '-' | '*' | '/' | '^' | '%' ;                 \
     expr     : <number> | '(' <operator> <expr>+ ')' ; \
-    rml      : /^/ '(' <operator> <expr>+ ')' /$/ ;    \
+    rml      : /^/ <operator> <expr>+ /$/ ;    \
   ", Number, Operator, Expr, RML );
 
   //Enter REPL:
