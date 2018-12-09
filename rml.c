@@ -59,7 +59,7 @@ int main(int argc, char** argv){
   ", Number, Operator, Expr, RML );
 
   //Enter REPL:
-  puts("Ryan's Micro LISP (RML) Version 0.0.0.6"); 
+  puts("\nRyan's Micro LISP (RML) Version 0.0.0.6"); 
   puts("Press Ctrl+C to Exit\n");
 
   //Add an item to the history so I don't need to type it over and over:
@@ -74,7 +74,7 @@ int main(int argc, char** argv){
     if( mpc_parse("<stdin>", input, RML, &r) ){
       //rml_analyze(r.output);
       long result = rml_eval(r.output); 
-      printf("\n\nans > %li\n\n", result);
+      printf("    = %li\n\n", result);
       mpc_ast_delete(r.output);  
     }else{
       mpc_err_print(r.error); 
@@ -118,8 +118,9 @@ long rml_op(long x, char* op, long y){
   if(!strcmp(op,"*")){return x*y;} 
   if(!strcmp(op,"^")){
     int z = x;
-    printf("Multiplying %li exponentially by %li",x,y);
-    for(int i=0; i<y; i++){z = z*x;}
+    for(int i=1; i<y; i++){
+        z = z*x;
+    }
     return z;
     } 
   if(!strcmp(op,"%")){
