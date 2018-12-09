@@ -4,7 +4,7 @@
 
 ![RML](/docs/assets/rml.svg)
 
-This is a tiny lisp. No use case yet, just building it for fun. It can currently only parse polish mathematical grammar with the four basic operations, separated with parentheses to an infinite depth. It can compile across UNIX OSes (discluding MacOS,) but with reduced history and line-editing functionality on Windows. Uses the `indent` program with GNU standards for code formatting.
+This is a tiny lisp. No use case yet, just building it for fun. It can currently only parse polish mathematical grammar with the four basic operations, separated with parentheses to an infinite depth. It can compile across UNIX OSes (discluding MacOS,) but with reduced history and line-editing functionality on Windows. Uses the `indent` program invoked as `indent -kr rml.c` to enforce K&R formatting.
 
 **Demo:**
 ```lisp
