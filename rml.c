@@ -56,7 +56,6 @@ int count_branches(mpc_ast_t * tree);
 
 int main(int argc, char **argv)
 {
-
     //Define grammar:
     mpc_parser_t *Number = mpc_new("number");
     mpc_parser_t *Operator = mpc_new("operator");
@@ -84,7 +83,7 @@ int main(int argc, char **argv)
         add_history(input);
 
         if (mpc_parse("<stdin>", input, RML, &r)) {
-            //rml_analyze(r.output);
+            rml_analyze(r.output);
             long result = rml_eval(r.output);
             printf("    = %li\n\n", result);
             mpc_ast_delete(r.output);
@@ -99,9 +98,11 @@ int main(int argc, char **argv)
     return 0;
 }
 
-//atoi() converts char* to a long.
-//strcmp() takes two char*s as input and returns 0 if they are equal.
-//strstr() Checks if the second string is present within the first.
+/*
+ * atoi() converts char* to a long.
+ * strcmp() takes two char*s as input and returns 0 if they are equal.
+ * strstr() Checks if the second string is present within the first.
+ */
 
 //Evaluates the MPC tree.
 long rml_eval(mpc_ast_t * tree)
@@ -123,7 +124,8 @@ long rml_eval(mpc_ast_t * tree)
     return x;
 }
 
-//Performs an operation on two numbers.
+// Performs an operation on two numbers.
+
 long rml_op(long x, char *op, long y)
 {
     if (!strcmp(op, "+")) {
@@ -147,7 +149,7 @@ long rml_op(long x, char *op, long y)
     return 0;
 }
 
-//Recursive analysis functions. (Half implemented.)
+// Recursive analysis functions. (Half implemented.)
 
 int rml_analyze(mpc_ast_t * tree)
 {
@@ -167,11 +169,10 @@ int rml_analyze(mpc_ast_t * tree)
 
 int describe_node(mpc_ast_t * n)
 {
-    printf("\n\nNode Info:\n  Tag: %s\n  Content: %s\n  Children: %i",
-           n->tag, n->contents, n->children_num);
+    printf("Node -> %s\t Children: %i  Tag: %s\n",
+           n->contents, n->children_num, n->tag);
     return 0;
 }
-
 
 int count_nodes(mpc_ast_t * tree)
 {
@@ -200,3 +201,4 @@ int count_branches(mpc_ast_t * tree)
     puts("Counting branches...");
     return 0;
 }
+
