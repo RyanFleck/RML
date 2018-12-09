@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "mpc.h" //Included in projects repo.
 
 #ifdef _WIN32
@@ -116,16 +117,8 @@ long rml_op(long x, char* op, long y){
   if(!strcmp(op,"-")){return x-y;} 
   if(!strcmp(op,"/")){return x/y;} 
   if(!strcmp(op,"*")){return x*y;} 
-  if(!strcmp(op,"^")){
-    int z = x;
-    for(int i=1; i<y; i++){
-        z = z*x;
-    }
-    return z;
-    } 
-  if(!strcmp(op,"%")){
-    return 1;
-    } 
+  if(!strcmp(op,"^")){return pow(x,y);} 
+  if(!strcmp(op,"%")){return fmod(x,y);} 
   return 0;
 }
 
