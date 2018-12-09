@@ -48,6 +48,10 @@ add_history (char *unused)
 int rml_analyze (mpc_ast_t * tree);
 long rml_eval (mpc_ast_t * tree);
 long rml_op (long x, char *op, long y);
+int describe_node (mpc_ast_t * n);
+int count_nodes (mpc_ast_t * tree);
+int count_children (mpc_ast_t * tree);
+int count_branches (mpc_ast_t * tree);
 
 int
 main (int argc, char **argv)
@@ -158,6 +162,7 @@ rml_op (long x, char *op, long y)
 }
 
 //Recursive analysis functions. (Half implemented.)
+
 int
 rml_analyze (mpc_ast_t * tree)
 {
@@ -166,52 +171,54 @@ rml_analyze (mpc_ast_t * tree)
   mpc_ast_print (tree);
   puts ("");
 
-  int describe_node (mpc_ast_t * n)
-  {
-    printf ("\n\nNode Info:\n  Tag: %s\n  Content: %s\n  Children: %i",
-	    n->tag, n->contents, n->children_num);
-    return 0;
-  }
-
-
-  int count_nodes (mpc_ast_t * tree)
-  {
-    describe_node (tree);
-    if (tree->children_num == 0)
-      {
-	return 1;
-      }
-    if (tree->children_num >= 1)
-      {
-	int total = 1;
-	for (int i = 0; i < tree->children_num; i++)
-	  {
-	    total = total + count_nodes (tree->children[i]);
-	  }
-	return total;
-      }
-    return 0;
-  }
   int nodes = count_nodes (tree);
-
-
-  int count_children (mpc_ast_t * tree)
-  {
-    puts ("Counting children...");
-    return 0;
-  }
   int children = count_children (tree);
-
-
-  int count_branches (mpc_ast_t * tree)
-  {
-    puts ("Counting branches...");
-    return 0;
-  }
   int branches = count_branches (tree);
-
 
   printf ("\nTree Info:\n\nNodes: %i\nChildren: %i\nBranches: %i",
 	  nodes, children, branches);
+  return 0;
+}
+
+int
+describe_node (mpc_ast_t * n)
+{
+  printf ("\n\nNode Info:\n  Tag: %s\n  Content: %s\n  Children: %i",
+	  n->tag, n->contents, n->children_num);
+  return 0;
+}
+
+
+int
+count_nodes (mpc_ast_t * tree)
+{
+  describe_node (tree);
+  if (tree->children_num == 0)
+    {
+      return 1;
+    }
+  if (tree->children_num >= 1)
+    {
+      int total = 1;
+      for (int i = 0; i < tree->children_num; i++)
+	{
+	  total = total + count_nodes (tree->children[i]);
+	}
+      return total;
+    }
+  return 0;
+}
+
+int
+count_children (mpc_ast_t * tree)
+{
+  puts ("Counting children...");
+  return 0;
+}
+
+int
+count_branches (mpc_ast_t * tree)
+{
+  puts ("Counting branches...");
   return 0;
 }
